@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<title>Cyberpunk 2077</title>
+
+<style>
+
+/* ===== CONFIGURACION ===== */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: rgb(10,10,10);
+    color: rgb(255,230,0);
+}
+
+.seccion {
+    margin: 25px auto;
+    padding: 20px;
+    max-width: 850px;
+    background-color: rgb(25,25,25);
+    border: 2px solid rgb(255,230,0);
+    text-align: center;
+}
+
+h1 {
+    font-size: 40px;
+    color: rgb(255,230,0);
+}
+
+h2 {
+    color: rgb(255,230,0);
+}
+
+p {
+    color: rgb(230,230,230);
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+
+/* ===== ENCABEZADO ===== */
+
+header {
+    padding: 30px;
+    text-align: center;
+    background-color: rgb(15,15,15);
+    border-bottom: 3px solid rgb(255,230,0);
+}
+
+
+/* ===== IMAGEN PRINCIPAL ===== */
+
+/* CAMBIA AQUI EL NOMBRE DE TU IMAGEN */
+
+.imagen-principal {
+    width: 250px;
+    max-width: 80%;
+    border: 3px solid rgb(255,230,0);
+}
+
+
+/* ===== BOTONES ===== */
+
+button {
+    padding: 10px 20px;
+    margin: 7px;
+    font-weight: bold;
+    background-color: rgb(255,230,0);
+    color: black;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: white;
+}
+
+
+/* ===== GALERIA ===== */
+
+.galeria img {
+    width: 350px;
+    max-width: 90%;
+    height: 220px;
+    object-fit: cover;
+    border: 3px solid rgb(255,230,0);
+}
+
+#nombreFoto {
+    color: rgb(255,230,0);
+}
+
+
+/* ===== QUIZ ===== */
+
+#resultado {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+
+/* ===== VIDEO ===== */
+
+video {
+    max-width: 90%;
+    border: 3px solid rgb(255,230,0);
+}
+
+
+/* ===== FORMULARIO ===== */
+
+.formulario input,
+.formulario textarea {
+    width: 80%;
+    padding: 10px;
+    margin: 7px;
+    background-color: rgb(35,35,35);
+    color: white;
+    border: 1px solid rgb(255,230,0);
+}
+
+.formulario textarea {
+    height: 80px;
+}
+
+
+/* ===== PIE DE PAGINA ===== */
+
+footer {
+    padding: 20px;
+    text-align: center;
+    background-color: rgb(5,5,5);
+    border-top: 3px solid rgb(255,230,0);
+}
+
+footer img {
+    width: 100px;
+}
+
+</style>
+
+</head>
+
+
+<body id="pagina">
+
+
+<!-- ===== ENCABEZADO ===== -->
+
+<header>
+
+<h1>CYBERPUNK 2077</h1>
+
+<p>Bienvenido a Night City</p>
+
+
+<!-- CAMBIA AQUI TU IMAGEN -->
+
+<img
+src="RPMcBvKKHCckgoRyUhHeZ.jpg"
+alt="Cyberpunk 2077"
+class="imagen-principal"
+>
+
+<br>
+
+<button onclick="cambiarModo()">
+MODO CLARO / OSCURO
+</button>
+
+</header>
+
+
+<!-- ===== INFORMACION ===== -->
+
+<section class="seccion">
+
+<h2>¿Qué es Cyberpunk 2077?</h2>
+
+<p>
+Cyberpunk 2077 es un videojuego de rol y acción
+desarrollado por CD Projekt Red. La historia se
+desarrolla en Night City, una ciudad futurista
+llena de tecnología y corporaciones.
+</p>
+
+<p>
+El jugador controla a V, un mercenario que intenta
+sobrevivir y hacerse un nombre dentro de Night City.
+</p>
+
+</section>
+
+
+<!-- ===== GALERIA ===== -->
+
+<section class="seccion galeria">
+
+<h2>GALERÍA DE NIGHT CITY</h2>
+
+
+<!-- LA IMAGEN CAMBIA CON LOS BOTONES -->
+
+<img
+id="foto"
+src="jonny.webp"
+alt="Imagen de Cyberpunk 2077"
+>
+
+
+<h2 id="nombreFoto">
+Johnny Silverhand
+</h2>
+
+
+<p id="descripcionFoto">
+Johnny Silverhand es uno de los personajes
+importantes de Cyberpunk 2077.
+</p>
+
+
+<button onclick="anterior()">
+ANTERIOR
+</button>
+
+<button onclick="siguiente()">
+SIGUIENTE
+</button>
+
+</section>
+
+
+<!-- ===== QUIZ ===== -->
+
+<section class="seccion">
+
+<h2>QUIZ</h2>
+
+<p>
+¿Cómo se llama la ciudad donde se desarrolla
+principalmente Cyberpunk 2077?
+</p>
+
+<button onclick="respuesta('Night City')">
+Night City
+</button>
+
+<button onclick="respuesta('Los Santos')">
+Los Santos
+</button>
+
+<button onclick="respuesta('Raccoon City')">
+Raccoon City
+</button>
+
+<p id="resultado"></p>
+
+</section>
+
+
+<!-- ===== VIDEO ===== -->
+
+<section class="seccion">
+
+<h2>VIDEO</h2>
+
+<!-- CAMBIA "hhh.mp4" POR TU VIDEO -->
+
+<video controls width="450">
+
+<source src="hhh.mp4" type="video/mp4">
+
+Tu navegador no puede reproducir este video.
+
+</video>
+
+</section>
+
+
+<!-- ===== FORMULARIO ===== -->
+
+<section class="seccion formulario">
+
+<h2>CONTACTO</h2>
+
+<p>¿Quieres dejar un comentario?</p>
+
+<form onsubmit="validarFormulario(event)">
+
+<input
+type="text"
+id="nombre"
+placeholder="Nombre"
+>
+
+<input
+type="email"
+id="correo"
+placeholder="Correo electrónico"
+>
+
+<textarea
+id="mensaje"
+placeholder="Escribe tu mensaje"></textarea>
+
+<br>
+
+<button type="submit">
+ENVIAR
+</button>
+
+</form>
+
+<p id="mensajeFormulario"></p>
+
+</section>
+
+
+<!-- ===== PIE DE PAGINA ===== -->
+
+<footer>
+
+<p>
+Página creada como práctica de interactividad web.
+</p>
+
+<a href="INDEX.html">
+
+<img
+src="foto.png"
+alt="Regresar al Index"
+>
+
+</a>
+
+</footer>
+
+
+<script>
+
+/* ===== MODO CLARO / OSCURO ===== */
+
+function cambiarModo() {
+
+var pagina = document.getElementById("pagina");
+
+if (pagina.style.backgroundColor == "white") {
+
+pagina.style.backgroundColor = "rgb(10,10,10)";
+pagina.style.color = "rgb(255,230,0)";
+
+} else {
+
+pagina.style.backgroundColor = "white";
+pagina.style.color = "black";
+
+}
+
+}
+
+
+/* ===== GALERIA ===== */
+
+/* CAMBIA O AGREGA TUS IMAGENES AQUI */
+
+var fotos = [
+
+"jonny.webp",
+"vincent.jpg",
+"nigth.webp",
+"arasaka.jpg"
+
+];
+
+
+/* TITULOS DE LAS IMAGENES */
+
+var nombres = [
+
+"Johnny Silverhand",
+"V",
+"Night City",
+"Arasaka"
+
+];
+
+
+/* INFORMACION DE LAS IMAGENES */
+
+var descripciones = [
+
+"Johnny Silverhand es uno de los personajes importantes de Cyberpunk 2077.",
+
+"V es el personaje principal y protagonista de la historia.",
+
+"Night City es la ciudad donde se desarrolla principalmente el juego.",
+
+"Arasaka es una de las corporaciones más importantes del mundo de Cyberpunk 2077."
+
+];
+
+
+var numero = 0;
+
+
+/* CAMBIAR IMAGEN Y TEXTO */
+
+function cambiarInformacion() {
+
+document.getElementById("foto").src =
+fotos[numero];
+
+document.getElementById("nombreFoto").innerHTML =
+nombres[numero];
+
+document.getElementById("descripcionFoto").innerHTML =
+descripciones[numero];
+
+}
+
+
+/* SIGUIENTE */
+
+function siguiente() {
+
+numero++;
+
+if (numero >= fotos.length) {
+numero = 0;
+}
+
+cambiarInformacion();
+
+}
+
+
+/* ANTERIOR */
+
+function anterior() {
+
+numero--;
+
+if (numero < 0) {
+numero = fotos.length - 1;
+}
+
+cambiarInformacion();
+
+}
+
+
+/* ===== QUIZ ===== */
+
+function respuesta(opcion) {
+
+if (opcion == "Night City") {
+
+document.getElementById("resultado").innerHTML =
+"¡CORRECTO! Night City es la ciudad principal del juego.";
+
+} else {
+
+document.getElementById("resultado").innerHTML =
+"INCORRECTO. Intenta nuevamente.";
+
+}
+
+}
+
+
+/* ===== FORMULARIO ===== */
+
+function validarFormulario(event) {
+
+event.preventDefault();
+
+var nombre =
+document.getElementById("nombre").value;
+
+var correo =
+document.getElementById("correo").value;
+
+var mensaje =
+document.getElementById("mensaje").value;
+
+
+if (nombre == "" || correo == "" || mensaje == "") {
+
+document.getElementById("mensajeFormulario").innerHTML =
+"Por favor, completa todos los campos.";
+
+} else {
+
+document.getElementById("mensajeFormulario").innerHTML =
+"¡Formulario enviado correctamente!";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
